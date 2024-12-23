@@ -27,7 +27,7 @@ jobs:
 
       - name: Upload file
         run: | 
-          aws s3 cp data/Image.jpeg s3://${{ github.event.inputs.testing_bucket_name }}/DeployS3Upload/
+          aws s3 cp Data/Image.jpeg s3://${{ github.event.inputs.testing_bucket_name }}/DeployS3Upload/
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
