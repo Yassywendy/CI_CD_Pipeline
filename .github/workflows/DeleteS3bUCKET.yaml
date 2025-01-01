@@ -23,9 +23,13 @@ jobs:
       # Étape 2 : Supprimer tous les objets du bucket
       - name: Delete all objects in the bucket
         run: |
-          aws s3 rm s3://${{ github.event.inputs.bucket_name }} --recursive
+          aws s3 rm s3://${bucket_name} --recursive
+        env:
+          bucket_name: ${{ github.event.inputs.bucket_name }}  # Injection de la variable dans l'environnement
 
       # Étape 3 : Supprimer le bucket
       - name: Delete the bucket
         run: |
-          aws s3 rb s3://${{ github.event.inputs.bucket_name }}
+          aws s3 rb s3://${bucket_name}
+        env:
+          bucket_name: ${{ github.event.inputs.bucket_name }}  # Injection de la variable dans l'environnement
